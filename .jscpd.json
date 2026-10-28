@@ -1,0 +1,14 @@
+{
+  "threshold": 0,
+  "minTokens": 50,
+  "reporters": ["console"],
+  "pattern": "**/*.{ts,tsx}",
+  "ignore": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/.output/**",
+    "**/routeTree.gen.ts",
+    "**/drizzle/**"
+  ],
+  "gitignore": true
+}

@@ -1,0 +1,13 @@
+node_modules
+dist
+.output
+.nitro
+.tanstack
+.nx/cache
+.nx/workspace-data
+coverage
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+.DS_Store
