@@ -56,8 +56,9 @@ TanStack Query. Proof: `pnpm check`, `test/plans.e2e-spec.ts`.
 
 ### 2. Identity and tenancy
 
-- Admin sign-in (better-auth in `apps/web`, session cookie) and a
-  service credential from web to API.
+- Admin sign-in with Google or email (better-auth in `apps/api`, reached only
+  through the `apps/web` proxy at `/api/auth/*`, session cookie) and a service
+  credential from web to API.
 - Customers created by `externalRef` (idempotent upsert).
 - Decide tenancy first (see open questions); if multi-tenant, every table gets
   `tenant_id` and every query is scoped by it.

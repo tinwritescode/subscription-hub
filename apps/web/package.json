@@ -13,6 +13,9 @@
     "lint": "oxlint -c ../../.oxlintrc.json --type-aware src/"
   },
   "dependencies": {
+    "@fontsource-variable/anybody": "^5.3.0",
+    "@fontsource/ibm-plex-sans": "^5.3.0",
+    "@subhub/domain": "workspace:*",
     "@tailwindcss/vite": "^4.1.18",
     "@tanstack/react-devtools": "0.10.13",
     "@tanstack/react-form": "1.33.5",
@@ -23,13 +26,13 @@
     "@tanstack/react-router-ssr-query": "1.167.3",
     "@tanstack/react-start": "1.169.4",
     "@tanstack/react-table": "9.3.1",
+    "better-auth": "1.7.14",
     "nitro": "3.0.260610-beta",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "tailwindcss": "^4.1.18",
-    "zod": "^4.6.7",
-    "@subhub/domain": "workspace:*",
-    "ts-rust": "0.2.0"
+    "ts-rust": "0.2.0",
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@tanstack/devtools-vite": "0.8.5",

@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from './auth/auth.module.js';
 import { parseEnv } from './config/env.js';
 import { DbModule } from './db/db.module.js';
 import { HealthController } from './health/health.controller.js';
@@ -13,6 +14,7 @@ import { PlansModule } from './plans/plans.module.js';
       validate: parseEnv,
     }),
     DbModule,
+    AuthModule,
     PlansModule,
   ],
   controllers: [HealthController],
