@@ -2,11 +2,12 @@ import { queryOptions } from '@tanstack/react-query';
 import { createServerFn } from '@tanstack/react-start';
 import { planSchema } from '@subhub/domain';
 import { z } from 'zod';
+import { requireSession } from '#/features/auth/auth.queries';
 import { apiGet } from '#/lib/api.server';
 
-const listPlans = createServerFn({ method: 'GET' }).handler(() =>
-  apiGet('/plans', z.array(planSchema)),
-);
+const listPlans = createServerFn({ method: 'GET' })
+  .middleware([requireSession])
+  .handler(() => apiGet('/plans', z.array(planSchema)));
 
 // Query keys and fetchers for plans live here only; routes and components
 // import these instead of writing their own keys.

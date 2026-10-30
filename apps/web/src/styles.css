@@ -1,4 +1,19 @@
 @import 'tailwindcss';
+@import '@fontsource-variable/anybody/wdth.css';
+@import '@fontsource/ibm-plex-sans/400.css';
+@import '@fontsource/ibm-plex-sans/500.css';
+
+@theme {
+  --color-ink: #23267a;
+  --color-ink-deep: #181a5c;
+  --color-paper: #f4f5fb;
+  --color-graphite: #1c1d33;
+  --color-muted: #5a5c7c;
+  --color-coral: #ff7a66;
+  --color-coral-deep: #b3301f;
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-display: 'Anybody Variable', 'IBM Plex Sans', sans-serif;
+}
 
 * {
   box-sizing: border-box;
@@ -12,4 +27,77 @@ body,
 
 body {
   margin: 0;
+  background: var(--color-paper);
+  color: var(--color-graphite);
+  font-family: var(--font-sans);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}
+
+/* The card's clipped corner and torn edge are how punch cards were read. */
+.punch-card {
+  position: relative;
+  background: var(--color-ink);
+  clip-path: polygon(
+    0 0,
+    calc(100% - 3.5rem) 0,
+    100% 3.5rem,
+    100% 100%,
+    0 100%
+  );
+}
+
+.punch-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 1.25rem;
+  background: radial-gradient(
+      circle at 0 50%,
+      var(--color-paper) 0.3rem,
+      transparent 0.32rem
+    )
+    0 0 / 100% 1rem;
+}
+
+.punch-hole {
+  display: block;
+  aspect-ratio: 1;
+  max-width: 1.75rem;
+  margin-inline: auto;
+  width: 100%;
+  border-radius: 50%;
+  animation: punch 240ms backwards;
+}
+
+.punch-hole-paid {
+  background: var(--color-paper);
+}
+
+.punch-hole-trial {
+  border: 2px solid var(--color-paper);
+}
+
+.punch-hole-failed {
+  background: var(--color-coral);
+}
+
+.punch-hole-none {
+  background: rgb(255 255 255 / 0.08);
+  animation: none;
+}
+
+@keyframes punch {
+  from {
+    transform: scale(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .punch-hole {
+    animation: none;
+  }
 }
